@@ -22,19 +22,7 @@ public class ConnectorConnectionStrategy {
      */
     
     @Configurable
-    private String wsdlLocation;
-    
-    @Configurable
     private String address;
-
- 
-	public String getWsdlLocation() {
-		return wsdlLocation;
-	}
-
-	public void setWsdlLocation(String wsdlLocation) {
-		this.wsdlLocation = wsdlLocation;
-	}
 
 	public String getAddress() {
 		return address;
