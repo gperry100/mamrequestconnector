@@ -1,0 +1,55 @@
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://BSkyB.com.BSS.Contract.Traffic" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://BSkyB.com.BSS.Contract.Traffic">
+	<xs:complexType name="ArrayOfMAMRequest">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="MAMRequest"
+				nillable="true" type="tns:MAMRequest" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfMAMRequest" nillable="true"
+		type="tns:ArrayOfMAMRequest" />
+	<xs:complexType name="MAMRequest">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="CreatedByUser" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="DateCompleted" nillable="true"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="DateRequired" nillable="true"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="DateTimeAcceptedByMAM"
+				nillable="true" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="DateTimeCreated" nillable="true"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="Deleted" nillable="true"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" name="Format" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="GenericID" nillable="true"
+				type="xs:int" />
+			<xs:element minOccurs="0" name="Level" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="MAMRequestID" nillable="true"
+				type="xs:int" />
+			<xs:element minOccurs="0" name="NoOfOutgestItems"
+				nillable="true" type="xs:int" />
+			<xs:element minOccurs="0" name="OutgestDestination"
+				nillable="true" type="xs:string" />
+			<xs:element minOccurs="0" name="RequestedForUser"
+				nillable="true" type="xs:string" />
+			<xs:element minOccurs="0" name="SourceObjectDetail"
+				nillable="true" type="xs:string" />
+			<xs:element minOccurs="0" name="SourceObjectID" nillable="true"
+				type="xs:int" />
+			<xs:element minOccurs="0" name="SourceObjectType"
+				nillable="true" type="xs:string" />
+			<xs:element minOccurs="0" name="Status" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="TargetObjectDetail"
+				nillable="true" type="xs:string" />
+			<xs:element minOccurs="0" name="Type" nillable="true"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MAMRequest" nillable="true" type="tns:MAMRequest" />
+</xs:schema>

@@ -1,0 +1,117 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://BSkyB.com.BSS.Common"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://BSkyB.com.BSS.Common">
+	<xs:complexType name="EndUser">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="EndUserDomain" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="EndUserID" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="EndUserIPAddress"
+				nillable="true" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EndUser" nillable="true" type="tns:EndUser" />
+	<xs:complexType name="BusinessException">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="EntityErrors" nillable="true"
+				type="tns:ArrayOfEntityError">
+				<xs:annotation>
+					<xs:appinfo>
+						<DefaultValue EmitDefaultValue="false"
+							xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ParameterErrors" nillable="true"
+				type="tns:ArrayOfParameterError">
+				<xs:annotation>
+					<xs:appinfo>
+						<DefaultValue EmitDefaultValue="false"
+							xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BusinessException" nillable="true"
+		type="tns:BusinessException" />
+	<xs:complexType name="ArrayOfEntityError">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="EntityError"
+				nillable="true" type="tns:EntityError" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfEntityError" nillable="true"
+		type="tns:ArrayOfEntityError" />
+	<xs:complexType name="EntityError">
+		<xs:complexContent mixed="false">
+			<xs:extension base="tns:BusinessError">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Attributes" nillable="true"
+						type="tns:ArrayOfNameValue" />
+					<xs:element minOccurs="0" name="ObjectID" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="ObjectType" nillable="true"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="EntityError" nillable="true" type="tns:EntityError" />
+	<xs:complexType name="BusinessError">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Error" nillable="true"
+				type="tns:Error" />
+			<xs:element minOccurs="0" name="Source" nillable="true"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BusinessError" nillable="true"
+		type="tns:BusinessError" />
+	<xs:complexType name="Error">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Code" nillable="true"
+				type="xs:int" />
+			<xs:element minOccurs="0" name="Message" nillable="true"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Error" nillable="true" type="tns:Error" />
+	<xs:complexType name="ArrayOfNameValue">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="NameValue"
+				nillable="true" type="tns:NameValue" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfNameValue" nillable="true"
+		type="tns:ArrayOfNameValue" />
+	<xs:complexType name="NameValue">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" nillable="true"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="Value" nillable="true"
+				type="xs:anyType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NameValue" nillable="true" type="tns:NameValue" />
+	<xs:complexType name="ArrayOfParameterError">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="ParameterError"
+				nillable="true" type="tns:ParameterError" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfParameterError" nillable="true"
+		type="tns:ArrayOfParameterError" />
+	<xs:complexType name="ParameterError">
+		<xs:complexContent mixed="false">
+			<xs:extension base="tns:BusinessError">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Parameters" nillable="true"
+						type="tns:ArrayOfNameValue" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ParameterError" nillable="true"
+		type="tns:ParameterError" />
+</xs:schema>

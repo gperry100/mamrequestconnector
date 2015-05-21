@@ -1,0 +1,11 @@
+<!-- BEGIN_INCLUDE(mamrequest:greet) -->
+    <mamrequest:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(mamrequest:greet) -->
+
+<!-- BEGIN_INCLUDE(mamrequest:putInmamrequest) -->
+    <mamrequest:greet config-ref="" friend="#[map-payload:animal]" />
+<!-- END_INCLUDE(mamrequest:putInmamrequest) -->
+
+<!-- BEGIN_INCLUDE(mamrequest:getMamRequestFromId) -->
+    <mamrequest:getMamRequestFromId config-ref="" friend="#[map-payload:mamRequestId]" />
+<!-- END_INCLUDE(mamrequest:getMamRequestFromId) -->

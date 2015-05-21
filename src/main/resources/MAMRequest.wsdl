@@ -1,0 +1,98 @@
+<wsdl:definitions name="MAMRequest"
+    targetNamespace="http://BSkyB.com.BSS.WCF.Traffic/MAMRequest"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+    xmlns:tns="http://BSkyB.com.BSS.WCF.Traffic/MAMRequest"
+    xmlns:req="http://BSkyB.com.BSS.Contract.Traffic/Request"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+    xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://BSkyB.com.BSS.Contract.Traffic/Request/Imports">
+            <xsd:import schemaLocation="./MAMRequest.xsd" 
+                namespace="http://BSkyB.com.BSS.Contract.Traffic/Request" /> 
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="IRequest_Get_InputMessage">
+        <wsdl:part name="request" element="req:Get"/>
+    </wsdl:message>
+    <wsdl:message name="IRequest_Get_OutputMessage">
+        <wsdl:part name="request" element="req:GetResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IRequest_Get_BusinessExceptionFault_FaultMessage">
+        <wsdl:part name="detail" element="q1:BusinessException"
+            xmlns:q1="http://BSkyB.com.BSS.Common"/>
+    </wsdl:message>
+    <wsdl:message name="IRequest_Update_InputMessage">
+        <wsdl:part name="request" element="req:Update"/>
+    </wsdl:message>
+    <wsdl:message name="IRequest_Update_OutputMessage">
+        <wsdl:part name="request" element="req:UpdateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IRequest_Update_BusinessExceptionFault_FaultMessage">
+        <wsdl:part name="detail" element="q2:BusinessException"
+            xmlns:q2="http://BSkyB.com.BSS.Common"/>
+    </wsdl:message>
+    <wsdl:portType name="IRequest">
+        <wsdl:operation name="Get">
+            <wsdl:input wsaw:Action="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/Get"
+                message="tns:IRequest_Get_InputMessage"/>
+            <wsdl:output
+                wsaw:Action="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/GetResponse"
+                message="tns:IRequest_Get_OutputMessage"/>
+            <wsdl:fault
+                wsaw:Action="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/GetBusinessExceptionFault"
+                name="BusinessExceptionFault"
+                message="tns:IRequest_Get_BusinessExceptionFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="Update">
+            <wsdl:input wsaw:Action="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/Update"
+                message="tns:IRequest_Update_InputMessage"/>
+            <wsdl:output
+                wsaw:Action="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/UpdateResponse"
+                message="tns:IRequest_Update_OutputMessage"/>
+            <wsdl:fault
+                wsaw:Action="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/UpdateBusinessExceptionFault"
+                name="BusinessExceptionFault"
+                message="tns:IRequest_Update_BusinessExceptionFault_FaultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="BasicHttpBinding_IRequest" type="tns:IRequest">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="Get">
+            <soap:operation soapAction="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/Get"
+                style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessExceptionFault">
+                <soap:fault name="BusinessExceptionFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="Update">
+            <soap:operation
+                soapAction="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/Update"
+                style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessExceptionFault">
+                <soap:fault name="BusinessExceptionFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="MAMRequest">
+        <wsdl:port name="BasicHttpBinding_IRequest" binding="tns:BasicHttpBinding_IRequest">
+            <soap:address location="http://localhost:901/MAMRequest.svc"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

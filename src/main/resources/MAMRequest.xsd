@@ -1,0 +1,37 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://BSkyB.com.BSS.Contract.Traffic/Request" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://BSkyB.com.BSS.Contract.Traffic/Request">
+  <xs:import schemaLocation="MAMRequest_1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:import schemaLocation="MAMRequest_1_2.xsd" namespace="http://BSkyB.com.BSS.Common"/>
+  <xs:import schemaLocation="MAMRequest_1_2_3.xsd" namespace="http://BSkyB.com.BSS.Contract.Traffic"/>
+  <xs:element name="Get">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MAMRequestID" type="q1:ArrayOfint" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        <xs:element minOccurs="0" name="sourceObjectType" type="xs:string"/>
+        <xs:element minOccurs="0" name="sourceObjectID" type="q2:ArrayOfint" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        <xs:element minOccurs="0" name="endUser" type="q3:EndUser" xmlns:q3="http://BSkyB.com.BSS.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetResult" type="q4:ArrayOfMAMRequest" xmlns:q4="http://BSkyB.com.BSS.Contract.Traffic"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MAMRequest" type="q5:ArrayOfMAMRequest" xmlns:q5="http://BSkyB.com.BSS.Contract.Traffic"/>
+        <xs:element minOccurs="0" name="endUser" type="q6:EndUser" xmlns:q6="http://BSkyB.com.BSS.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateResult" type="q7:ArrayOfMAMRequest" xmlns:q7="http://BSkyB.com.BSS.Contract.Traffic"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
