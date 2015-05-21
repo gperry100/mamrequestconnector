@@ -70,54 +70,11 @@ public class MamRequestConnector {
 
 			return mamRequestClient.get(mamRequestId);
 			
-//			IRequest req = new MAMRequestFactory(connectionStrategy).createMAMRequest();
-//		
-//			Get get = new traffic.contract.bss.com.bskyb.request.ObjectFactory().createGet();
-//			ArrayOfint arrayOfint = new ObjectFactory().createArrayOfint();
-//			arrayOfint.getInt().add(mamRequestId);
-//			get.setMAMRequestID(arrayOfint);
-//			GetResponse getResponse = req.get(get);
-//			
-//			return MamRequestSimpleGetResponse.fromGetResponse(getResponse);
-			 
-			
-//			traffic.contract.bss.com.bskyb.MAMRequest request = getResponse.getGetResult().getMAMRequest().get(0);
-//			ObjectMapper mapper = new ObjectMapper(); // create once, reuse
-//			
-//
-//	        mapper.addMixInAnnotations(JAXBElement.class, JAXBElementMixin.class);
-//
-//			
-//
-//			String output = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(request);
-//			System.out.println("############### OUTPYUT " + output);
-//			return output;
-			
-//			StringWriter writer = new StringWriter();
-//        	JAXB.marshal(getResponse, writer);
-//        	return writer.getBuffer().toString();
-
 		} catch ( IRequestGetBusinessExceptionFaultFaultMessage e) {
 			e.printStackTrace();
 		} 
 		return null;
 	}
-
-//    /**
-//     * Set property
-//     *
-//     * @param greeting My property
-//     */
-//    public void setGreeting(String greeting) {
-//        this.greeting = greeting;
-//    }
-//
-//    /**
-//     * Get property
-//     */
-//    public String getGreeting() {
-//        return this.greeting;
-//    }
 
     public ConnectorConnectionStrategy getConnectionStrategy() {
         return connectionStrategy;
